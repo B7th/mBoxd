@@ -1,0 +1,66 @@
+$primary = #0db4ff
+@import 'm'
+@import 'nib'
+@import 'reset'
+@import 'shorthands'
+reset()
+defaults()
+// Images with @nx where n=[1,] are by default for small screens
+// And JS will automatically reach for higher resolution when existing
+// @a1.png has 1 small resolution and is not necessary as it is understood
+// @a2.png is the small resolution of two images
+// @b2.png is the big resolution of two images
+// @b3.png is the medium resolution of three images
+// .svg.png is changed into .svg when available
+// Automatically taken care of by JS
+
+body
+  m box
+  font-family Optima, serif
+  background-color $primary
+  background linear-gradient(bottom left, #0db4ff, #00a4f2)
+  //gradient bottom left, #0db4ff, #00a4f2
+  font-size 19pt
+  color #000
+  min-height 100%
+  //+media(print)
+  //  background #fff
+  &:after
+    z-index -1
+    be block, absolute bottom right, size 11em
+    content ''
+    background transparent url('tree@1x.png') bottom center no-repeat
+    background-size contain
+
+a
+  color #fff
+
+header
+  color #fff
+  be float right, min-height 4em, height 50%, min-width 10em, width 100%
+  replace-by 'name.svg'
+  //+media(print)
+  //  svg 'name-print'
+
+main, aside
+  height 100%
+
+main
+  be center, relative, clear, padding 20pt 0
+  line-height 1.5em
+
+blockquote
+  font-size 1.2em
+  background-color lighten($primary,90%)
+  background-color rgba(#fff,80%)
+  margin-bottom 50pt
+  line-height 1.5em
+
+h2
+  color #fff
+  font-size 2em
+  text-align right
+
+
+
+

@@ -1,0 +1,17 @@
+icn($text, $content)
+  +m($text icn)
+    &::before
+      content: $content
++m(icn)
+  i
+    m(sr)
+  b
+    +to-phablet()
+      m(sr)
+
+$icons = 
+  safari:	'\032'
+  firefox:	'\033'
+
+for $key, $val of $icons
+  icn($key, $val)

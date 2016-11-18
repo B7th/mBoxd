@@ -1,0 +1,29 @@
+name: mboxd
+version: 1.0.0
+description: 'A clear, broad and terse web design solution'
+repository: notyet.com
+main: app.coffee
+scripts:
+  start: nodemon --watch app.coffee app.coffee
+  test: mocha --reporter spec --timeout 5000
+author: Martin G. Gagnon
+license: MIT
+dependencies:
+  async: ^2.0.1
+  coffeescript-concat: ^1.0.14
+  console-stamp: ^0.2.2
+  copy: ^0.3.0
+  dirtree: 0.0.2
+  express: ^4.14.0
+  file-tree: ^1.0.0
+  glob: ^7.0.5
+  json: ^9.0.4
+  marked: ^0.3.6
+  merge: ^1.2.0
+  nib: ^1.1.2
+  node-watch: ^0.4.0
+  node-yaml: ^3.0.0
+  pug: ^2.0.0-beta5
+  rmdir: ^1.2.0
+  stylus: ^0.54.5
+  yml: 0.0.5

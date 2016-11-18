@@ -1,0 +1,87 @@
+be() //Helps write one-liners without parentheses
+  for args in arguments
+    name=shift(args)
+    if length(args)
+      {name} args
+    else
+      {name}()
+first() //Of a few arguments, return the first non-empty
+  return arg if arg for arg in arguments
+
+hide()
+  display none
+hidden()
+  display none
+inline-block()
+  display inline-block
+inline()
+  display inline
+block()
+  display block
+
+clear()
+  clear first(arguments,both)
+
+arrange(name,value,args=null)
+  if args or args == 0
+    {value} args
+  else
+    {name} value
+
+left()
+  arrange(text-align, left, arguments)
+right()
+  arrange(text-align, right, arguments)
+top()
+  arrange(vertical-align, top, arguments)
+bottom()
+  arrange(vertical-align, bottom, arguments)
+
+center()
+  text-align center
+middle()
+  vertical-align middle
+baseline()
+  vertical-align baseline
+
+margin-auto()
+  margin-left auto; margin-right auto
+
+$sr-only
+  sr-only()
+
+bold()
+  font-weight bold
+b()
+  font-weight bold
+italic()
+  font-style italic
+i()
+  font-style italic
+
+underline()
+  text-decoration underline
+line-through()
+  text-decoration line-through
+overline()
+  text-decoration overline
+normal()
+  text-decoration none
+  font-weight normal
+  font-style normal
+
+svg(name)
+  background-image unquote('url("'+name+'.png")')
+  background-image unquote('linear-gradient(transparent, transparent), url("'+name+'.svg")')
+
+replace-by(name, args...)
+  if args
+    background-position args
+    background-repeat no-repeat
+  else
+    background top right no-repeat
+  background-image unquote('url("'+name+'.png")') if name
+  background-image unquote('url("'+name+'")')
+  background-size contain
+  *
+    display none

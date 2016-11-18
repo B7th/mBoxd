@@ -1,0 +1,39 @@
+// Mboxd CSS
+// 
+// Elements are 1-3 lettered while modules are full worded
+// -m() accesses, m() extends, and +m() adds
+//
+
+@import 'scaffolding'
+@import 'mixins'
+
+-m()
+  $i   = length(arguments)
+  $key = arguments[-1]
+  $val = arguments[-2] ? arguments[-2] : null
+  $tag = arguments[-3] ? arguments[-3] : null
+  $val = '~="%s"' % $val if $val
+  return '%s[%s\:%s%s]' % ($tag $namespace $key $val) 
+  
+m()
+  $selector = -m(arguments)
+  if block
+    {$selector}
+      {block}
+  else
+    //extend according to media & cache
+    @extend {$selector}
+
+/*
+-are()
+  //[m\:primary] [m\:btn], [m\:btn=~"primary"]
+  //[m\:primary] [m\:btn=~"large"], [m\:btn=~"large"][m\:btn=~"primary"]
+  $i	= count(arguments)
+  $merged = if $val then '%s%s' % () else '%s%s' % ()
+  return '%s %s, %s' % (-m($mod) -m($val,$tag,$key) -m($val,$tag,$key))
+*/
+
+@import 'grid'
+@import 'media'
+
+@import 'defaults'

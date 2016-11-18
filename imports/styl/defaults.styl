@@ -1,0 +1,55 @@
++m(sr)
+  position absolute
+  width 1px
+  height 1px
+  padding 0
+  margin -1px
+  overflow hidden
+  clip rect(0,0,0,0)
+  border 0
+
+@import 'form'
+@import 'table'
+@import 'inline'
+@import 'text'
+
+defaults()
+  text_defaults()
+  inline_defaults()
+  title_defaults()
+  table_defaults()
+
+table_defaults()
+  table
+    m(tbl)
+
+text_defaults()
+  p
+    m(p)
+  blockquote
+    m(bq)
+  h1
+    m(ttl)
+  h2
+    m(sub ttl)
+  address
+    m(adr)
+  ul
+    m(lst)
+  ol
+    m(ordered lst)
+  dl
+    m(dico lst)
+inline_defaults()
+  del, s
+    m(s)
+  ins, u
+    m(u)
+  small
+    m(sml)
+  strong, b
+    m(b)
+  em
+    m(i)
+  abbr
+    m(abr)

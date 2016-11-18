@@ -1,0 +1,57 @@
+$prev-name		= ''
+$prev-size		= 0
+$media-from 	= 'screen and (min-width: %s)'
+$media-till		= 'screen and (max-width: %s)'
+$media-only		= 'screen and (min-width: %s) and (max-width: %s)'
+
+print()
+  +media('print')
+    {block}
+
+$media_cache = {}
+only = {}
+from = {}
+till = {}
+
+media_helper(condition)
+  unless $media_cache[condition]
+    $media_cache[condition] = ()
+  push($media_cache[condition], block)
+
+media(condition)
+  +media_helper(condition)
+    {selector()}
+      {block}
+
+each $name, $size in $screens
+  if $prev-name
+    font-size $size/*lookup('till-' + $prev-name)
+    $func = 'till-%s' % $prev-name
+    $till-{$prev-name}	= $media-till % $size
+    till[$prev-name] = @(){
+      +media($till-{$prev-name})
+        {block}
+    }
+    $only-{$prev-name}	= $media-only % ($prev-size $size)
+    only[$prev-name] = @(){
+      +media($only-{$prev-name})
+        {block}
+    }
+    $from-{$name}		= $media-from % $size
+    from[$name] = @(){
+      +media($from-{$name})
+        {block}
+    }
+  $prev-name			= $name
+  $prev-size			= $size
+$only-{$name}			= $media-till % $size
+only[$name] = @(){
+  +media($only-{$name})
+    {block}
+}
+
+medias()
+  for media, blocks in $media_cache
+    @media media
+      for item in blocks
+        {item}/**/
