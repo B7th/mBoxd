@@ -1,6 +1,6 @@
 # mBoxd
 
-Jumpstart differently and easily with mBoxd, an all-in-one or cherry-picked solution for projects of all sizes.
+Jumpstart different and easy with mBoxd, an all-in-one or cherry-picked solution for projects of any size.
 
 The principle behind mBoxd In is very simple in it packs the best conventions of the web.
 - DRYer than Grunt, Gulp or npm scripts.
@@ -24,14 +24,17 @@ But so has been other bulky languages and conventions that clutter and have each
 
 ## Languages and conventions used
 
-**Yaml**:
+**Yaml**
 * *L*: Multilingual content. The object rendered by L defaults to the one in data.yml when a value is not undefined
-**Stylus**:
+
+**Stylus**
 * *mBoxd*: Namespaced css. This is the actual birthplace of the project. Coupled with 
-**Coffeescript**:
-**Pug**: 
+
+**Coffeescript**
+**Pug**
 * *Partial*: 
-**Markdown**:  
+
+**Markdown**
 
 ## Work Schedule
 
